@@ -22,10 +22,11 @@ def main():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed() #10-3
+        kk_rct.move_ip(-1, 0)  # ①何も押さなくても背景と同じ速度で左へ流れる
         if key_lst[pg.K_UP]: kk_rct.move_ip(0, -1) #10-4
         if key_lst[pg.K_DOWN]: kk_rct.move_ip(0, 1) #10-4
         if key_lst[pg.K_LEFT]: kk_rct.move_ip(-1, 0) #10-4
-        if key_lst[pg.K_RIGHT]: kk_rct.move_ip(1, 0) #10-4   
+        if key_lst[pg.K_RIGHT]: kk_rct.move_ip(2, 0)  # ②-1 + 2 = +1 で右に進む
         x= tmr%3200
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img2, [-x+1600, 0])
